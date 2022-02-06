@@ -1,1 +1,1 @@
-kodluyoruz-react-studies
+Kodluyoruz React Studies
