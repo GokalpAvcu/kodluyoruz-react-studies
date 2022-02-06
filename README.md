@@ -1,1 +1,1 @@
-Kodluyoruz React Studies
+Kodluyoruz React patikasında yaptığım çalışmalarımı topladığım repo.
