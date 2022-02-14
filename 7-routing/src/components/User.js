@@ -10,7 +10,7 @@ function User() {
   
 
   useEffect (() => {
-    axios(`https://jsonplaceholder.typicode.com/users/${id}`)
+    axios(`https://jsonplaceholder.typicode.com/users/${id}`) // listeleme işlemi için burda fake bir api gösterip verileri aldık yukarıdaki user stateimize atıyoruz, users sayfamızda mapleme işlemini yapıyoruz
     .then((res) =>setUser(res.data))
     .finally(() => setLoading(false));
   }, [id]);
@@ -25,8 +25,8 @@ function User() {
 
       <br />
       <br />
-
-    <Link to={`/user/${parseInt(id)+1}`}>
+  
+    <Link to={`/user/${parseInt(id)+1}`}> 
       Next User ({parseInt(id) + 1})
     </Link>
 

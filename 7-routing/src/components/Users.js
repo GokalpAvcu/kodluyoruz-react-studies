@@ -8,7 +8,7 @@ function Users() {
   const [users, setUsers] = useState([]);
  
   useEffect (() => {
-   axios("https://jsonplaceholder.typicode.com/users") 
+   axios("https://jsonplaceholder.typicode.com/users")  // listeleme işlemi için burda fake bir api gösterip verileri aldık yukarıdaki user stateimize atıyoruz, map işlemini yapıyoruz
    .then (res => setUsers(res.data))
    .finally(() => setLoading(false));
   }, [])
@@ -21,7 +21,7 @@ function Users() {
         {
         users.map((user) => (
           <li key={user.id}> 
-            <Link to = {`/user/${user.id}`}>{user.name}</Link>
+            <NavLink activeClassName="active" to={`${url}/${user.id}`}>{user.name}</NavLink>
           </li>
         ))}
       </ul>
