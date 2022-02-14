@@ -13,6 +13,7 @@ import Home from './components/Home'
 import About from './components/About'
 import Users from './components/Users'
 import User from './components/User'
+import Error404 from './components/Error404'
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <Route path="/about" component={About}/>
           <Route path="/users" component={Users}/>  
           <Route path="/user/:id" component={User}/>
+          <Route path="*" component={Error404} />
         </Switch>
       </div>
     </Router>
