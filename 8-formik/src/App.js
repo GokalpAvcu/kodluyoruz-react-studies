@@ -11,42 +11,80 @@ function App() {
         firstName: '',
         lastName: '',
         email: '',
+        gender: '',
+        hobies: [],
+        country:"Turkey"
       }}
       onSubmit={ (values) => {
         console.log(values);
       }}
     >
      {
-       ({handleSubmit, handleChange}) => (
+       ({handleSubmit, handleChange, values}) => (
         <form onSubmit={handleSubmit}>
         <label htmlFor="firstName">First Name</label>
-        <input name="firstName" onChange={handleChange} />
+        <input name="firstName" value={values.firstName} onChange={handleChange} />
 
         <br/>
         <br/>
 
         <label htmlFor="lastName">Last Name</label>
-        <input name="lastName" onChange={handleChange} />
+        <input name="lastName" value={values.lastName} onChange={handleChange} />
         
 
         <br/>
         <br/>
 
         <label htmlFor="email">Email</label>
-        <input name="email" onChange={handleChange} />
+        <input name="email" value={values.email}  onChange={handleChange} />
 
         <br/>
         <br/>
-
-        <label htmlFor="gender">Gender</label>
 
         <span>Male</span>
-        <input type="radio" value="male" onChange={handleChange} />
+        <input type="radio" name="gender" value="male" onChange={handleChange} checked={values.gender ==="male"} />
         
         <span>Female</span>
-        <input type="radio" value="female" onChange={handleChange}/>
+        <input type="radio" name="gender" value="female" onChange={handleChange} checked={values.gender ==="female"}/>
+        
+        <br />
+        <br />
+
+        <div>
+          <input type="checkbox" name="hobies" value="Football" onChange={handleChange} />
+          Football
+        </div>
+
+        <div>
+          <input type="checkbox" name='hobies' value="Cinema" onChange={handleChange} />
+          Cinema
+        </div>
+
+        <div>
+          <input type="checkbox" name='hobies' value="Photography" onChange={handleChange} />
+          Photography
+        </div>
+
+        <br />
+        <br />
+
+        <select name="country" value={values.country} onChange={handleChange}>
+        <option value="Turkey">Turkey</option>
+        <option value="England">England</option>
+        <option value="USA">USA</option>
+
+        </select>
+
+        <br />
+        <br />
+
 
         <button type="submit">Submit</button>
+
+        <br />
+        <br />
+
+        {JSON.stringify(values)}
       </form>
        )
      }
