@@ -1,9 +1,13 @@
-import { object, string, number, date, InferType } from 'yup';
+import * as yup from 'yup';
 
-const validations = object({
-    email: string().email(),
-    password: string().min(5).required(),
-    passwordConfirm: string().oneOf([('password')]).required(),
-});
+const validations = yup.object().shape({
+    email: yup.string().email('Geçerli bir email girin').required('Zorunlu alan'),
+   password: yup.string().min(5, 'Parolanız en az 5 karakter olmalıdır').required('Zorunlu alan'),
+   passwordConfirm: yup.string().oneOf([yup.ref('password')], 'Parolalar uyuşmuyor.').required('Zorunlu alan')
+ });
 
-  export default validations;
+ export default validations;
+
+ // zorunlulukları alıyoruz.
+ // required zorunlu tutuyor
+ // oneOf metodu ile passworda eşitliyoruz.
