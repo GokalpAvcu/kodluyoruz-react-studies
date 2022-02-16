@@ -1,16 +1,23 @@
 import './App.css';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import  Header from './components/Header' // header componentini gösterip import ettik
 
 
 function App() {
 const [number, setNumber] = useState(0);
 
+//arrow function yazdık
+const data = useMemo(() => {
+  return { name:"Gökalp", number};
+},[number]) //dependency array verdik, iceride return islemini yaptık header componenti tekrar tekrar render edilmeyecek 
+
+
+
  // header'a kosul tanimladik, number 5'den kücükse herzaman sifir gondersin degilse direkt number gondersin diye degistirdim
   return (
     <div className="App">
-      <Header number={number < 5 ? 0 : number}/>  
+      <Header data={data}/>  
 
       <hr />
 
