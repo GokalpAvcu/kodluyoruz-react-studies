@@ -2,7 +2,7 @@ import { useContext } from 'react'// asagidaki context'i kullanmak icin react'in
 
 import ThemeContext from '../context/ThemeContext' //kullanmak istedigim componenti dahil ettim
 
-function Button() {
+function Button({children}) {
     const data = useContext(ThemeContext)
     
   return (
