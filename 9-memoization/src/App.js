@@ -6,10 +6,11 @@ import  Header from './components/Header' // header componentini gösterip impor
 
 function App() {
 const [number, setNumber] = useState(0);
+const [text, setText] = useState("");
 
 //arrow function yazdık
 const data = useMemo(() => {
-  return { name:"Gökalp", number};
+  return calculateObject(number);
 },[number]) //dependency array verdik, iceride return islemini yaptık header componenti tekrar tekrar render edilmeyecek 
 
 
@@ -23,9 +24,20 @@ const data = useMemo(() => {
 
       <h1>{number}</h1>
       <button onClick={() => setNumber(number + 1)}>Click</button>
-      
+      <br />
+      <br />
+
+      <input value={text} onChange={({target}) => setText(target.value)} />
     </div>
   );
+}
+
+function calculateObject (number) {
+  console.log("Calculating...");
+  for (let i=0; i<1000000; i++) {}
+  console.log("Calculating completed!");
+
+  return { name: "Gökalp", number};
 }
 
 export default App;
