@@ -2,11 +2,16 @@ import { useContext } from 'react'// asagidaki context'i kullanmak icin react'in
 
 import ThemeContext from '../context/ThemeContext' //kullanmak istedigim componenti dahil ettim
 
-function Button({children}) {
-    const data = useContext(ThemeContext)
+function Button() {
+  const {theme, setTheme} = useContext(ThemeContext);
     
+  
   return (
-    <div>Button ({data})</div>
+    <div>Active Theme: {theme}
+    
+    <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>Change Theme</button>
+
+    </div>
   )
 }
 
