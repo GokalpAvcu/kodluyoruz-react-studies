@@ -17,3 +17,10 @@ export const init = () => {
 export const send = (color) => {
     socket.emit('newColor', color);
 }
+
+export const subscribe = () => {
+    socket.on('receive', (color)=> {
+        console.log(color);
+        setActiveColor()
+    });
+};
